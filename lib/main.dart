@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopy/core/widget/cubit/text_feild_cubit.dart';
 import 'package:shopy/featured/splash/splash_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,8 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashView(),
+    return BlocProvider(
+      create: (context) => TextFeildCubit(), // توفير الكيوبت للتطبيق كله
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light(), // الوضع الفاتح
+        darkTheme: ThemeData.dark(), // الوضع الداكن
+        themeMode: ThemeMode.system, // يحدد الوضع حسب النظام
+        home: const SplashView(),
+      ),
     );
   }
 }

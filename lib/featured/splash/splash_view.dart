@@ -12,24 +12,26 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SingUpView(),
-        ));
-      },
-    );
-    // TODO: implement initState
     super.initState();
+
+    // ضمان تنفيذ الانتقال بعد بناء الواجهة بالكامل
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(
+        const Duration(seconds: 3),
+        () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const SingUpView()),
+          );
+        },
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appcolor.kPColor,
-      body: Container(
-        alignment: Alignment.center,
+      body: Center(
         child: Image.asset("assets/images/Group.png"),
       ),
     );

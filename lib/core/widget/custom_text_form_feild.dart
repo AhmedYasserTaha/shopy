@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopy/core/widget/cubit/text_feild_cubit.dart';
 
-class CustomTextField extends StatefulWidget {
+class CustomTextField extends StatelessWidget {
   final String label;
   final TextInputType keyboardType;
   final bool isPassword;
@@ -15,33 +17,30 @@ class CustomTextField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
-}
-
-class _CustomTextFieldState extends State<CustomTextField> {
-  bool _obscureText = true;
-
-  @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: widget.label,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-        prefixIcon: Icon(widget.icon), // أيقونة البداية
-        suffixIcon: widget.isPassword
-            ? IconButton(
-                icon: Icon(
-                    _obscureText ? Icons.visibility_off : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    _obscureText = !_obscureText;
-                  });
-                },
-              )
-            : null, // لو مش باسورد مش هيكون فيه زرار
-      ),
-      keyboardType: widget.keyboardType,
-      obscureText: widget.isPassword ? _obscureText : false,
+    return BlocBuilder<TextFeildCubit, TextFeildState>(
+      builder: (context, state) {
+        bool obscureText = context.read<TextFeildCubit>().isPasswordVisible;
+
+        return TextFormField(
+          decoration: InputDecoration(
+            labelText: label,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+            prefixIcon: Icon(icon), // أيقونة البداية
+            suffixIcon: isPassword
+                ? IconButton(
+                    icon: Icon(
+                        obscureText ? Icons.visibility_off : Icons.visibility),
+                    onPressed: () {
+                      context.read<TextFeildCubit>().togglePasswordVisibility();
+                    },
+                  )
+                : null,
+          ),
+          keyboardType: keyboardType,
+          obscureText: isPassword ? obscureText : false,
+        );
+      },
     );
   }
 }
