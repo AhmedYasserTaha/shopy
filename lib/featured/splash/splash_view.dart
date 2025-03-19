@@ -27,7 +27,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Constans.kPColor,
+      backgroundColor: Appcolor.kPColor,
       body: Container(
         alignment: Alignment.center,
         child: Image.asset("assets/images/Group.png"),

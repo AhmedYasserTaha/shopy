@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/featured/splash_view.dart';
+import 'package:shopy/featured/splash/splash_view.dart';
 
 void main() {
   runApp(MyApp());
