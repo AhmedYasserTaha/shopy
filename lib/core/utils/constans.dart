@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
-const kPColor = Color(0xff100B20);
+abstract class Constans {
+  static const kPColor = Color(0xff1152FD);
+  // ignore: constant_identifier_names
+  static const Khintcolor = Color(0xffbd5dde0);
 
-const kTransationDuration = Duration(milliseconds: 250);
+  static const kTransationDuration = Duration(milliseconds: 250);
+}

@@ -1,5 +1,5 @@
-import 'package:bookly_app/core/utils/style.dart';
 import 'package:flutter/material.dart';
+import 'package:shopy/core/utils/style.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget(
