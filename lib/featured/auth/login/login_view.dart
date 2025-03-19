@@ -15,9 +15,9 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          "Login",
-          style: Styles.textStyle20,
+        title: Text(
+          "Welcome back",
+          style: Styles.textStyle30.copyWith(color: Appcolor.Ktextcolor),
         ),
       ),
       body: Padding(
@@ -25,6 +25,12 @@ class LoginView extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const Text(
+                  "Please fill E-mail & password to login your\nShopy application account.",
+                  style: Styles.textStyle16,
+                ),
+                const SizedBox(height: 50), // مسافة بين الحقول
+
                 const CustomTextField(
                     label: "Email",
                     keyboardType: TextInputType.emailAddress,
