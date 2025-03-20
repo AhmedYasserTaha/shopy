@@ -36,9 +36,10 @@ class SignUpBody extends StatelessWidget {
               icon: Icons.password),
           const SizedBox(height: 50), // مسافة بين الحقول
           CustomButtonWidget(
+              width: MediaQuery.of(context).size.width,
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const HomeView(),
+                  builder: (context) => HomeView(),
                 ));
               },
               backgroundColor: Appcolor.kPColor,

@@ -5,6 +5,7 @@ import 'package:shopy/featured/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
+  // ApiService();
 }
 
 class MyApp extends StatelessWidget {

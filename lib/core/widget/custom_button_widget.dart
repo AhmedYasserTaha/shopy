@@ -9,19 +9,21 @@ class CustomButtonWidget extends StatelessWidget {
       this.borderRadius,
       required this.textTilte,
       this.fontSize,
-      this.onPressed});
+      this.onPressed,
+      required this.width});
 
   final Color backgroundColor;
   final Color textColor;
   final BorderRadius? borderRadius;
   final String textTilte;
   final double? fontSize;
+  final double? width;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: 60,
+      width: width,
+      height: 50,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
@@ -32,7 +34,7 @@ class CustomButtonWidget extends StatelessWidget {
         ),
         child: Text(
           textTilte,
-          style: Styles.textStyle18.copyWith(
+          style: Styles.textStyle16.copyWith(
               fontWeight: FontWeight.bold,
               color: textColor,
               fontSize: fontSize),
